@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>结局会怎样01 | FallenHertBlog</title>
+<title>双指针问题解析 | FallenHertBlog</title>
 <noscript>开启Javascript是必要的</noscript>
 <link rel="icon" type="image/x-icon" href="/img/avatar.webp">
 <link rel="apple-touch-icon" href="/img/avatar.webp">
@@ -230,7 +230,7 @@
         </div>
         <div id="page-name-mask">
             <div id="page-name">
-                <a id="page-name-text" onclick="acrylic.toTop()">结局会怎样01</a>
+                <a id="page-name-text" onclick="acrylic.toTop()">双指针问题解析</a>
             </div>
         </div>
         <div id="menus">
@@ -310,7 +310,7 @@
 </nav>
     
         <div class="coverdiv" id="coverdiv">
-    <img id="post-cover" class="nolazyload" src="/img/pageimage/whatwillbe.png" alt="cover">
+    <img id="post-cover" class="nolazyload" src="/img/pageimage/leetcode.jpg" alt="cover">
 </div>
 <div id="post-info">
     <div id="post-firstinfo">
@@ -321,41 +321,46 @@
             
             <span class="post-meta-categories">
                 
-                    <a class="post-meta-categories" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
+                    <a class="post-meta-categories" href="/categories/%E7%BB%83%E4%B9%A0/">练习</a>
                 
             </span>
             
             <div class="tag_share">
                 <div class="post-meta__tag-list">
                     
-                        <a class="post-meta__tags" href="/tags/%E6%97%A5%E5%B8%B8/">
+                        <a class="post-meta__tags" href="/tags/leetcode/">
                             <span class="tags-punctuation">#</span>
-                            <span class="tags-name">日常</span>
+                            <span class="tags-name">leetcode</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/JavaScript/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">JavaScript</span>
                         </a>
                     
                 </div>
             </div>
         </div>
     </div>
-    <h1 class="post-title">结局会怎样01</h1>
+    <h1 class="post-title">双指针问题解析</h1>
     <div id="post-meta">
         <div class="meta-secondline">
             <span class="post-meta-date" title="发布于">
                 <i class="post-meta-icon fa-fw fas fa-calendar"></i>
-                <time datetime="2023-07-02T00:00:00+08:00"></time>
+                <time datetime="2023-08-03T00:00:00+08:00"></time>
             </span>
             
             
-                <span class="post-meta-position" title="作者IP归属地为南京">
+                <span class="post-meta-position" title="作者IP归属地为南通">
                     <i class="fas fa-location-dot post-meta-icon"></i>
-                    <span>南京</span>
+                    <span>南通</span>
                 </span>
             
             
                 
                     <span class="post-meta-wordcount">
                         <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
-                        <span class="word-count">1.1k</span>
+                        <span class="word-count">1.3k</span>
                     </span>
                 
                 
@@ -385,42 +390,80 @@
                 <main class="layout" id="content-inner">
     <div id="post">
         <article class="post-content" id="article-container">
-            <h2 id="每周纪要"><a href="#每周纪要" class="headerlink" title="每周纪要"></a>每周纪要</h2><ol>
-<li>满帮内部倒排期项目提测。个人认为项目存在极大不合理性，上线后负反馈概率高。</li>
-<li>本人主导推动的页面框架迁移提测持续受阻。离职前完成重构上线或成泡影。考虑交接页面迭代与维护工作。</li>
-<li>首次用React.animated制作动画，效果被业务老板夸了。但是存在图标变化抽搐的问题，尝试解决中。</li>
-<li>粤语学习与健身仍在日程计划中，目前坚持存在难度。粤语找不到合适的开口途径。</li>
-<li>港中文签证下发，相关赴港证件办理提上日程。</li>
-<li>同事推荐美剧《怪奇物语》与《绝命毒师》分别追完第一季。</li>
+            <p>刚开始刷题，遇到的首个思路是双指针。在这篇中积累总结一下。</p>
+<h2 id="5-最长回文子串"><a href="#5-最长回文子串" class="headerlink" title="5. 最长回文子串"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-palindromic-substring/">5. 最长回文子串</a></h2><p>给你一个字符串 s，找到 s 中最长的回文子串。如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
+<p><strong>示例1</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;cbbd&quot;</span><br><span class="line">输出：&quot;bb&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>解析思路</strong></p>
+<p>中心扩散法</p>
+<ol>
+<li>定义 i 位置为初始位，注意到从初始位往后复数位如果均相同，则为回文字符串，如”aa“，”bbb“，记为[ i , j ]</li>
+<li>在1的基础上，建立两个指针，start指向字符串初始位 i，end指向字符串结束位 j</li>
+<li>由中心向外扩散，如果 start-1 位 与 end+1 位 相同，[ start - 1, end + 1] 也为回文字符串</li>
+<li>重复3步骤，直到获得 i 初始位下的最长回文字符串</li>
+<li>i 递增，重复1-4步骤，直到获取到最长回文字符串</li>
 </ol>
-<h2 id="简思"><a href="#简思" class="headerlink" title="简思"></a>简思</h2><h3 id="关于原则"><a href="#关于原则" class="headerlink" title="关于原则"></a>关于原则</h3><p>被同事吐槽说没有原则，有些产品在需求提测之后提及的改动，我仍会协商着去修改。</p>
-<p>挺好玩的，一个唯老板马首是瞻、愿意周末去加两天班的人，说我没有原则。</p>
-<p>她说她有原则，老板让她干啥她干啥。我说人的原则不能建立在别人的想法和预期之上。她不理我了。</p>
-<p>她应该不在意我有没有原则，只是希望我不要给她加工作量。</p>
-<p>后面跟产品协商的时候还要拉上测试。</p>
-<p>不过，职场里面没有这方面的原则很奇怪么。没有话语权的人守不住自己的原则。</p>
-<h3 id="关于协作"><a href="#关于协作" class="headerlink" title="关于协作"></a>关于协作</h3><p>我还是学不会如何正确地推动别人来实现我的要求。在对方并没有收益的情况下。</p>
-<p>这是框架迁移持续受阻的主要原因，被对方看来更高优先级的事件阻塞了。</p>
-<p>或许我应该为对方创造即时收益或者期许长期收益，两者都很难。</p>
-<h3 id="关于剧"><a href="#关于剧" class="headerlink" title="关于剧"></a>关于剧</h3><p>不可否认，《怪奇物语》第一季使用的标准校园美剧模板，辅以出色的演员与背景音，让这部剧本身处在一个高水平线上。</p>
-<p>但剧中老师对于前往颠倒世界的杂技演员与跳蚤解说，毁掉了这部剧。</p>
-<p>这个解说，试图在剧中建立起现实中的物理体系，却与后续诸多情节相悖。</p>
-<p>一个天赋异禀的小女孩，她大脑产生的念力，通过仪器放大之后，可以打开一个绝对稳定的、一人大小的空间隧道。且这个通道，产生的能量仅会扰乱周围磁场，甚至没有出现动物行为异常。</p>
-<p>我是一个门外的物理爱好者，自我推测这个能量级，至少得在恒星级以上。毕竟太阳的核聚变也没有能够撕开通道。</p>
-<p>这完全破坏了我之后的观影体验。</p>
-<p>我更倾向于，剧情将颠倒世界和真实世界描绘成叠放在一起的两个图层。略有不同的是，两者的空间本就相互交错。十一的前辈，碰巧在特异点上施力，诱发了裂隙的产生。当然，多少需要伴随一些剧变。一段时间后，不知情的二战流民在一旁建起来自己的村落，为了掩人耳目，有关机构也没有出面制止。</p>
-<p>我觉得我编的都比剧情里面靠谱。</p>
-<p>不要乱碰硬科幻。</p>
-<h3 id="关于财富"><a href="#关于财富" class="headerlink" title="关于财富"></a>关于财富</h3><p>周五晚上，舍友告诉我，他学弟高考考了全省401名。我说，哦。</p>
-<p>他接着说，有个私立学校出300w让他复读一年。我说，啊？</p>
-<p>他问我，要你怎么选。我躺在地板上想了三秒钟，300w。</p>
-<p>我觉得我很肤浅，于是我爬起来问他，要你呢？他笑了，肯定选300w。</p>
-<p>他接着说，他学弟有些犹豫，但群里所有人都在劝他去复读。那可是300w。</p>
-<p>我不清楚这是不是一个骗局，但舍友告诉我广东就是这样的。</p>
-<p>之前他高考的时候，有学校出20w+80w找他去复读。去复读给20w，考上清北再给80w。他没去。</p>
-<p>时代变化很快，现在已经涨到了160w+140w。</p>
-<p>舍友很后悔，觉得他早生了那么几年。</p>
-<p>我想了一晚上，想不到我干什么能够一年赚160w。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; <span class="variable">s</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestPalindrome = <span class="keyword">function</span>(<span class="params">s</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, start = <span class="number">0</span>, end = <span class="number">0</span>; i &lt; s.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        start = i;</span><br><span class="line">        end = i;</span><br><span class="line">        <span class="keyword">while</span>(end + <span class="number">1</span> &lt; s.<span class="property">length</span> &amp;&amp; s[end + <span class="number">1</span>] == s[i]) &#123;</span><br><span class="line">            end += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(start &gt; <span class="number">0</span> &amp;&amp; end &lt; s.<span class="property">length</span> &amp;&amp; s[end + <span class="number">1</span>] == s[start - <span class="number">1</span>]) &#123;</span><br><span class="line">            end += <span class="number">1</span>;</span><br><span class="line">            start -= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (end &gt; start &amp;&amp; str.<span class="property">length</span> &lt; end - start + <span class="number">1</span>) &#123;</span><br><span class="line">            str = s.<span class="title function_">slice</span>(start, end + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str ? str : s[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="11-盛最多水的容器"><a href="#11-盛最多水的容器" class="headerlink" title="11. 盛最多水的容器"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></h2><p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p>
+<p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
+<p>返回容器可以储存的最大水量。</p>
+<p><strong>说明：</strong>你不能倾斜容器。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;cbbd&quot;</span><br><span class="line">输出：&quot;bb&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>解析思路</strong></p>
+<p>向中心夹逼</p>
+<ol>
+<li>建立两个指针，left指向最左位，right指向最右侧，每次计算left与right之间 可盛水的量</li>
+<li>比较左右两条边的大小，小的一边往内侧移动，计算 可盛水的量</li>
+<li>直到左右侧重合前，获取最大可盛水的量即为题解</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">height</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> maxArea = <span class="keyword">function</span>(<span class="params">height</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> right = height.<span class="property">length</span>-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> maxArea = <span class="number">0</span>; <span class="comment">// 最大容积</span></span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="comment">// 计算出 当前的容积  与最大容积比较，取出最大的</span></span><br><span class="line">        <span class="keyword">const</span> currentArea = (right - left)*<span class="title class_">Math</span>.<span class="title function_">min</span>(height[left],height[right]);</span><br><span class="line">        maxArea = <span class="title class_">Math</span>.<span class="title function_">max</span>(maxArea,currentArea);</span><br><span class="line">        <span class="comment">//  left 向内移动 </span></span><br><span class="line">        <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxArea;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="18-四数之和"><a href="#18-四数之和" class="headerlink" title="18. 四数之和"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/4sum/">18. 四数之和</a></h2><p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code> ，和一个目标值 <code>target</code> 。请你找出并返回满足下述全部条件且<strong>不重复</strong>的四元组 <code>[nums[a], nums[b], nums[c], nums[d]]</code> （若两个四元组元素一一对应，则认为两个四元组重复）：</p>
+<ul>
+<li><code>0 &lt;= a, b, c, d &lt; n</code></li>
+<li><code>a</code>、<code>b</code>、<code>c</code> 和 <code>d</code> <strong>互不相同</strong></li>
+<li><code>nums[a] + nums[b] + nums[c] + nums[d] == target</code></li>
+</ul>
+<p>你可以按 <strong>任意顺序</strong> 返回答案 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,0,-1,0,-2,2], target = 0</span><br><span class="line">输出：[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,2,2,2,2], target = 8</span><br><span class="line">输出：[[2,2,2,2]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>解析思路</strong></p>
+<p>基于三数相加的思路。 </p>
+<ol>
+<li>将数组从低到高依次排列</li>
+<li>通过 i 和 j 定下前两个参数的位置（三数之和场景简化 用 i 定位第一个参数）</li>
+<li>用 L 和 R 作为指针，根据 从低到高的排列顺序 夹逼到target场景 —— 如果四数之和较target小，L右移；如果四数之和较target大，R左移。直到L、R重合前，将每一组值满足target的解输出到 outPut当中</li>
+<li>其中添加while循环避免重复数组的出现</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">target</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number[][]</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> fourSum = <span class="keyword">function</span>(<span class="params">nums, target</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.<span class="property">length</span> &lt; <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line">    nums.<span class="title function_">sort</span>(<span class="function">(<span class="params"> a, b </span>) =&gt;</span> a - b)</span><br><span class="line">    <span class="keyword">const</span> outPut = []</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.<span class="property">length</span> - <span class="number">3</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i-<span class="number">1</span>])&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="property">length</span> - <span class="number">2</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>( j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j-<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> L = j + <span class="number">1</span></span><br><span class="line">            <span class="keyword">let</span> R = nums.<span class="property">length</span> - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span>( L &lt; R )&#123;</span><br><span class="line">                <span class="keyword">let</span> sum = nums[i] + nums[j] + nums[L] + nums[R]</span><br><span class="line">                <span class="keyword">if</span>(sum == target)&#123;</span><br><span class="line">                    outPut.<span class="title function_">push</span>([ nums[i], nums[j], nums[L], nums[R] ])</span><br><span class="line">                    <span class="keyword">while</span>(nums[R]==nums[R-<span class="number">1</span>] &amp;&amp; R &gt; <span class="number">2</span>)&#123;</span><br><span class="line">                        R--</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">while</span>(nums[L]==nums[L+<span class="number">1</span>] &amp;&amp; L &lt; nums.<span class="property">length</span> - <span class="number">2</span>)&#123;</span><br><span class="line">                        L++</span><br><span class="line">                    &#125;</span><br><span class="line">                    R--</span><br><span class="line">                    L++</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(sum &gt; target)&#123;</span><br><span class="line">                    R--</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(sum &lt; target)&#123;</span><br><span class="line">                    L++</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> outPut</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>双指针的解法一般用于中心扩展或者夹逼压缩、这两种场景。</p>
+<p>需要题设满足线性队列并且可以局部贪心。</p>
+<p>相比较于常规的暴力破解法，往往能够降低一个层级的复杂度</p>
 
         </article>
         <div class="post-tools" id="post-tools">
@@ -433,18 +476,18 @@
         </div>
         <div class="share-main">
             <div class="share-main-all">
-                <div id="qrcode" title="https://fallenhert.github.io/2023/07/02/%E5%91%A8%E5%B8%B8/20230702/">
+                <div id="qrcode" title="https://fallenhert.github.io/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/">
                 </div>
                 <div class="reward-dec">使用手机访问这篇文章</div>
             </div>
         </div>
         <script type="text/javascript">
-            new QRCode(document.getElementById("qrcode"), "https://fallenhert.github.io/2023/07/02/%E5%91%A8%E5%B8%B8/20230702/");
+            new QRCode(document.getElementById("qrcode"), "https://fallenhert.github.io/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/");
         </script>
     </div>
 </div>
                 <div class="share-link weibo"><a class="share-button" target="_blank"
-    href="https://service.weibo.com/share/share.php?title=结局会怎样01&amp;url=https://fallenhert.github.io/2023/07/02/%E5%91%A8%E5%B8%B8/20230702/&amp;pic=/img/pageimage/whatwillbe.png"
+    href="https://service.weibo.com/share/share.php?title=双指针问题解析&amp;url=https://fallenhert.github.io/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/&amp;pic=/img/pageimage/leetcode.jpg"
     title="分享到微博" rel="noopener external nofollow noreferrer noopener">
     <i class="fab fa-weibo" style="font-size:22px"></i>
 </a>
@@ -459,10 +502,16 @@
                 <div class="tag_share">
                     <div class="post-meta__tag-list">
                         
-                            <a href="/tags/%E6%97%A5%E5%B8%B8/" class="post-meta__tags">
+                            <a href="/tags/leetcode/" class="post-meta__tags">
                                 <span class="tags-punctuation">#</span>
-                                日常
-                                <span class="tagsPageCount">4</span>
+                                leetcode
+                                <span class="tagsPageCount">1</span>
+                            </a>
+                        
+                            <a href="/tags/JavaScript/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                JavaScript
+                                <span class="tagsPageCount">1</span>
                             </a>
                         
                     </div>
@@ -473,12 +522,12 @@
     <div class="post-copyright__author">
         <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
         <a class="post-copyright-title" href="#">
-            <span>结局会怎样01</span>
+            <span>双指针问题解析</span>
         </a>
     </div>
     <div class="post-copyright__type">
         <span class="post-copyright-info" id="post-copyright-url">
-            <a href="/2023/07/02/%E5%91%A8%E5%B8%B8/20230702/">https://fallenhert.github.io/2023/07/02/%E5%91%A8%E5%B8%B8/20230702/</a>
+            <a href="/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/">https://fallenhert.github.io/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/</a>
         </span>
         <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
             <i class="fas fa-paste copy-btn"></i>
@@ -492,22 +541,17 @@
 </div>
         <nav class="pagination-post" id="pagination">
     
-        <div class="prev-post pull-left">
-            <a href="/2023/07/09/%E5%91%A8%E5%B8%B8/20230709/">
-                <div class="pagination-info">
-                    <div class="label">上一篇</div>
-                    <div class="prev_info">结局会怎样02</div>
-                </div>
-            </a>
-        </div>
-        <div class="next-post pull-right">
-            <a href="/2023/06/23/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/20230623-React-Animated-%E5%8A%A8%E7%94%BB/">
-                <div class="pagination-info">
-                    <div class="label">下一篇</div>
-                    <div class="next_info">React Animated 动画</div>
-                </div>
-            </a>
-        </div>
+        
+            <div class="next-post pull-full">
+                <a href="/2023/07/30/%E5%91%A8%E5%B8%B8/20230730/">
+                    <div class="pagination-info">
+                        <div class="label">下一篇</div>
+                        <div class="next_info">结局会怎样04</div>
+                    </div>
+                </a>
+            </div>
+                
+        
     
 </nav>
             
@@ -547,7 +591,7 @@
         <span>文章目录</span>
     </div>
     <div class="toc-content" id="toc-content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%8F%E5%91%A8%E7%BA%AA%E8%A6%81"><span class="toc-text">每周纪要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E6%80%9D"><span class="toc-text">简思</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8E%9F%E5%88%99"><span class="toc-text">关于原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8D%8F%E4%BD%9C"><span class="toc-text">关于协作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%89%A7"><span class="toc-text">关于剧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%B4%A2%E5%AF%8C"><span class="toc-text">关于财富</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2"><span class="toc-text">5. 最长回文子串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-text">11. 盛最多水的容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-text">18. 四数之和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol>
     </div>
 </div>
             
