@@ -224,44 +224,10 @@ var fourSum = function(nums, target) {
 
 
 
-## [27. 移除元素](https://leetcode.cn/problems/remove-element/)
-
-给你一个数组 `nums` 和一个值 `val`，你需要 **[原地](https://baike.baidu.com/item/原地算法)** 移除所有数值等于 `val` 的元素，并返回移除后数组的新长度。
-
-不要使用额外的数组空间，你必须仅使用 `O(1)` 额外空间并 **[原地 ](https://baike.baidu.com/item/原地算法)修改输入数组**。
-
-元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
-
-
-
-**解题思路**
-
-快慢指针
-
-因为比较简单，在这边就不展开描述了。贴一下代码仅供参考
-
-```javascript
-var removeElement = function (nums, val) {
-    let len =nums.length;
-    let k = 0;
-    for(let i = 0;i<len;i++){
-        if(nums[i] != val){
-            nums[k++] = nums[i]
-        }
-    }
-    return k
-}
-```
-
-
-
 ## 小结
 
-双指针的常见用法有两种，左右指针和快慢指针。
+双指针的解法一般用于中心扩展或者夹逼压缩、这两种场景。
 
-左右指针用于中心扩展或者夹逼压缩、这两种场景。
+需要题设满足线性队列并且可以局部贪心。
 
-快慢指针用于数组或列表遍历检索特定元素场景。
-
-相比较于常规的暴力破解法，往往能够降低一个层级的复杂度。
-
+相比较于常规的暴力破解法，往往能够降低一个层级的复杂度
