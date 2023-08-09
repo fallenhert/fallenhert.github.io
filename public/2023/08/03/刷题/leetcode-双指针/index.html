@@ -59,15 +59,15 @@
                     </div>
                     <div class="card-tag-cloud">
                         
-                            <a href="/tags/React/" style="font-size: 0.8rem; color: #d3d3d3">React<sup>1</sup></a>
-                        
-                            <a href="/tags/JS/" style="font-size: 0.8rem; color: #d3d3d3">JS<sup>1</sup></a>
-                        
-                            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 0.8rem; color: #d3d3d3">日常<sup>4</sup></a>
-                        
                             <a href="/tags/leetcode/" style="font-size: 0.8rem; color: #d3d3d3">leetcode<sup>1</sup></a>
                         
                             <a href="/tags/JavaScript/" style="font-size: 0.8rem; color: #d3d3d3">JavaScript<sup>1</sup></a>
+                        
+                            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 0.8rem; color: #d3d3d3">日常<sup>4</sup></a>
+                        
+                            <a href="/tags/React/" style="font-size: 0.8rem; color: #d3d3d3">React<sup>1</sup></a>
+                        
+                            <a href="/tags/JS/" style="font-size: 0.8rem; color: #d3d3d3">JS<sup>1</sup></a>
                         
                             <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 0.8rem; color: #d3d3d3">工作<sup>1</sup></a>
                         
@@ -81,7 +81,7 @@
      
         <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-08/')" data-pjax-state=""><span
             class="card-archive-list-date">2023-08</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span
                     class="card-archive-list-count-unit">篇</span></div>
             </a>
         </li>
@@ -95,7 +95,7 @@
      
         <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-06/')" data-pjax-state=""><span
             class="card-archive-list-date">2023-06</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span
                     class="card-archive-list-count-unit">篇</span></div>
             </a>
         </li>
@@ -175,11 +175,11 @@
             </div>
             <div class="card-tag-cloud">
                 
-                    <a href="/tags/React/" style="font-size: 1em; color: #d3d3d3">React
+                    <a href="/tags/leetcode/" style="font-size: 1em; color: #d3d3d3">leetcode
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/JS/" style="font-size: 1em; color: #d3d3d3">JS
+                    <a href="/tags/JavaScript/" style="font-size: 1em; color: #d3d3d3">JavaScript
                         <sup>1</sup>
                     </a>
                 
@@ -187,11 +187,11 @@
                         <sup>4</sup>
                     </a>
                 
-                    <a href="/tags/leetcode/" style="font-size: 1em; color: #d3d3d3">leetcode
+                    <a href="/tags/React/" style="font-size: 1em; color: #d3d3d3">React
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/JavaScript/" style="font-size: 1em; color: #d3d3d3">JavaScript
+                    <a href="/tags/JS/" style="font-size: 1em; color: #d3d3d3">JS
                         <sup>1</sup>
                     </a>
                 
@@ -360,7 +360,7 @@
                 
                     <span class="post-meta-wordcount">
                         <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
-                        <span class="word-count">1.3k</span>
+                        <span class="word-count">1.5k</span>
                     </span>
                 
                 
@@ -461,9 +461,20 @@
 
 
 
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>双指针的解法一般用于中心扩展或者夹逼压缩、这两种场景。</p>
-<p>需要题设满足线性队列并且可以局部贪心。</p>
-<p>相比较于常规的暴力破解法，往往能够降低一个层级的复杂度</p>
+<h2 id="27-移除元素"><a href="#27-移除元素" class="headerlink" title="27. 移除元素"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-element/">27. 移除元素</a></h2><p>给你一个数组 <code>nums</code> 和一个值 <code>val</code>，你需要 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地</a></strong> 移除所有数值等于 <code>val</code> 的元素，并返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须仅使用 <code>O(1)</code> 额外空间并 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地 </a>修改输入数组</strong>。</p>
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p><strong>解题思路</strong></p>
+<p>快慢指针</p>
+<p>因为比较简单，在这边就不展开描述了。贴一下代码仅供参考</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeElement = <span class="keyword">function</span> (<span class="params">nums, val</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> len =nums.<span class="property">length</span>;</span><br><span class="line">    <span class="keyword">let</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] != val)&#123;</span><br><span class="line">            nums[k++] = nums[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>双指针的常见用法有两种，左右指针和快慢指针。</p>
+<p>左右指针用于中心扩展或者夹逼压缩、这两种场景。</p>
+<p>快慢指针用于数组或列表遍历检索特定元素场景。</p>
+<p>相比较于常规的暴力破解法，往往能够降低一个层级的复杂度。</p>
 
         </article>
         <div class="post-tools" id="post-tools">
@@ -541,17 +552,22 @@
 </div>
         <nav class="pagination-post" id="pagination">
     
-        
-            <div class="next-post pull-full">
-                <a href="/2023/07/30/%E5%91%A8%E5%B8%B8/20230730/">
-                    <div class="pagination-info">
-                        <div class="label">下一篇</div>
-                        <div class="next_info">结局会怎样04</div>
-                    </div>
-                </a>
-            </div>
-                
-        
+        <div class="prev-post pull-left">
+            <a href="/2023/08/09/%E6%8B%BE%E6%A2%A6/20230623-%E6%BB%A1%E5%B8%AE/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">南京运满满的一年</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/07/30/%E5%91%A8%E5%B8%B8/20230730/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">结局会怎样04</div>
+                </div>
+            </a>
+        </div>
     
 </nav>
             
@@ -591,7 +607,7 @@
         <span>文章目录</span>
     </div>
     <div class="toc-content" id="toc-content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2"><span class="toc-text">5. 最长回文子串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-text">11. 盛最多水的容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-text">18. 四数之和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2"><span class="toc-text">5. 最长回文子串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-text">11. 盛最多水的容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-text">18. 四数之和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-text">27. 移除元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol>
     </div>
 </div>
             
@@ -604,6 +620,25 @@
     </div>
     <div class="aside-list">
         
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/08/09/%E6%8B%BE%E6%A2%A6/20230623-%E6%BB%A1%E5%B8%AE/" title="南京运满满的一年">
+                    <img
+                        alt="南京运满满的一年"
+                        src="/img/pageimage/FullTruckAlliance.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/08/09/%E6%8B%BE%E6%A2%A6/20230623-%E6%BB%A1%E5%B8%AE/">
+                            拾梦
+                        </a>
+                    
+                    <a class="title" href="/2023/08/09/%E6%8B%BE%E6%A2%A6/20230623-%E6%BB%A1%E5%B8%AE/" title="南京运满满的一年">
+                        南京运满满的一年
+                    </a>
+                </div>
+            </div>
+                
         
             <div class="aside-list-item">
                 <a class="thumbnail" href="/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/" title="双指针问题解析">
@@ -676,25 +711,6 @@
                     
                     <a class="title" href="/2023/07/09/%E5%91%A8%E5%B8%B8/20230709/" title="结局会怎样02">
                         结局会怎样02
-                    </a>
-                </div>
-            </div>
-                
-        
-            <div class="aside-list-item">
-                <a class="thumbnail" href="/2023/07/02/%E5%91%A8%E5%B8%B8/20230702/" title="结局会怎样01">
-                    <img
-                        alt="结局会怎样01"
-                        src="/img/pageimage/whatwillbe.png">
-                </a>
-                <div class="content">
-                    
-                        <a class="article-recent_post_categories" href="/2023/07/02/%E5%91%A8%E5%B8%B8/20230702/">
-                            周报
-                        </a>
-                    
-                    <a class="title" href="/2023/07/02/%E5%91%A8%E5%B8%B8/20230702/" title="结局会怎样01">
-                        结局会怎样01
                     </a>
                 </div>
             </div>
@@ -811,4 +827,4 @@
     
     </body>
 </html>
-<script>const posts=["2023/08/03/刷题/leetcode-双指针/","2023/07/30/周常/20230730/","2023/07/16/周常/20230716/","2023/07/09/周常/20230709/","2023/07/02/周常/20230702/","2023/06/23/前端技术/20230623-React-Animated-动画/","2023/06/23/拾梦/20230623-满帮/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
+<script>const posts=["2023/08/09/拾梦/20230623-满帮/","2023/08/03/刷题/leetcode-双指针/","2023/07/30/周常/20230730/","2023/07/16/周常/20230716/","2023/07/09/周常/20230709/","2023/07/02/周常/20230702/","2023/06/23/前端技术/20230623-React-Animated-动画/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
