@@ -1,5 +1,4 @@
 .DS_Store
 node_modules/
-themes/Acrylic/
 .deploy_git
 db.json
