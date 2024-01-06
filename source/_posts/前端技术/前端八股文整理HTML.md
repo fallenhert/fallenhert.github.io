@@ -1,13 +1,13 @@
-```
-title: 前端八股文整理——HTML&CSS
-date: 2023/06/23
+---
+title: 前端八股文整理HTML&CSS
+date: 2023/12/30
 tags: [HTML, 八股文]
 categories: 前端技术
 recommend: true
 locate: 南通
 copyright: 整理
 cover: /img/pageimage/reactnative.jpg
-```
+---
 
 个人整理前端八股文和面试题，分模块梳理  
 
@@ -36,9 +36,9 @@ cover: /img/pageimage/reactnative.jpg
 CSS 盒模型本质上是一个盒子，盒子包裹着HTML元素，盒子由四个属性组成，从内到外分别是：**content 内容**、**padding 内填充**、**border 边框**、**外边距 margin**
 
 
-![标准盒模型.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff8add8c613241bba5c4cf33169580d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=774&h=523&s=47459&e=jpg&b=fdf7f5)
+![标准盒模型.png](https://i.postimg.cc/g2NCk8nf/image.jpg)
 
-![怪异盒模型.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b782d868e5641b49c27b5354d2fdc65~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=761&h=507&s=50008&e=jpg&b=fdf6f0)
+![怪异盒模型.png](https://i.postimg.cc/sDzqYwWk/image.jpg)
 
 两种盒模型的区别在于容器宽度和高度的计算方式不同：
 
@@ -205,7 +205,7 @@ css2中伪元素和伪类的写法是一致的，都是使用单冒号+名称来
 **例子：** `p::first-line` 匹配所有 [`<p>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p) 元素的第一行。
 
 # CSS优先级
-![CSS优先级.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2abf4a843b5e4839b80c0de4aada4a97~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=475&h=266&s=20982&e=png&b=fffefe)
+![CSS优先级.png](https://i.postimg.cc/V6MZMCks/CSS.png)
 
 层叠优先级是:
 
