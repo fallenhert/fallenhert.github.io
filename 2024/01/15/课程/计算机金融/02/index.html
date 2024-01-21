@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Image processing and computer vision | FallenHertBlog</title><meta name="author" content="Fallen Hert"><meta name="copyright" content="Fallen Hert"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Calculation of returns 收益计算  simple interest convention 简单利益惯例 e.g. 6-month rate is 4.8%: $1000 x (1 + 0.048 x 0.5) &#x3D; $1024   annual compounding convention 年复利惯例 e.g. 2-year interest rate is 5%: $1000">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Image processing and computer vision">
+<meta property="og:url" content="https://fallenhert.github.io/2024/01/15/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/02/index.html">
+<meta property="og:site_name" content="FallenHertBlog">
+<meta property="og:description" content="Calculation of returns 收益计算  simple interest convention 简单利益惯例 e.g. 6-month rate is 4.8%: $1000 x (1 + 0.048 x 0.5) &#x3D; $1024   annual compounding convention 年复利惯例 e.g. 2-year interest rate is 5%: $1000">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fallenhert.github.io/img/pageimage/0013.png">
+<meta property="article:published_time" content="2024-01-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-15T15:26:34.363Z">
+<meta property="article:author" content="Fallen Hert">
+<meta property="article:tag" content="CUHK">
+<meta property="article:tag" content="计算机金融">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fallenhert.github.io/img/pageimage/0013.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://fallenhert.github.io/2024/01/15/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/02/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Image processing and computer vision',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-15 23:26:34'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="FallenHertBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/pageimage/0013.png')"><nav id="nav"><span id="blog-info"><a href="/" title="FallenHertBlog"><span class="site-name">FallenHertBlog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Image processing and computer vision</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-14T16:00:00.000Z" title="发表于 2024-01-15 00:00:00">2024-01-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-15T15:26:34.363Z" title="更新于 2024-01-15 23:26:34">2024-01-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%BE%E7%A8%8B/">课程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Image processing and computer vision"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>Calculation of returns</strong></p>
+<p>收益计算</p>
+<ul>
+<li>simple interest convention 简单利益惯例<ul>
+<li>e.g. 6-month rate is 4.8%: $1000 x (1 + 0.048 x 0.5) = $1024</li>
+</ul>
+</li>
+<li>annual compounding convention 年复利惯例<ul>
+<li>e.g. 2-year interest rate is 5%: $1000 x (1+0.05)^2 = $1102.5</li>
+</ul>
+</li>
+<li>semi-annual compounding convention 半年复利惯例<ul>
+<li>e.g. 2-year interest rate is 5.1%: $1000 x (1+0.051/2)^(2x2) = $1105.96</li>
+</ul>
+</li>
+<li>continuous compounding convention 持续复利惯例<ul>
+<li>e.g. 3-year interest rate is 5.3%: $1000 x e^(0/053x3) = $1172.34</li>
+</ul>
+</li>
+</ul>
+<h1 id="Topic-1-1-DERIVATIVE-MARKET-AND-INSTRUMENTS"><a href="#Topic-1-1-DERIVATIVE-MARKET-AND-INSTRUMENTS" class="headerlink" title="Topic 1-1: DERIVATIVE MARKET AND INSTRUMENTS"></a>Topic 1-1: DERIVATIVE MARKET AND INSTRUMENTS</h1><h2 id="Financial-derivatives"><a href="#Financial-derivatives" class="headerlink" title="Financial derivatives"></a>Financial derivatives</h2><p>A contract “derived” from some underlying asset prices</p>
+<p>Payoff could be linear or non-linear</p>
+<p>Could involve multiple assests/currencies</p>
+<p>Provide instruments for risk transfer</p>
+<p>Market completeness</p>
+<p>Could be highly leveraged</p>
+<p>Listed instruments could be very liquid; very efficient as a speculative tool</p>
+<p><strong>arbitrage</strong>: the possibility of setting up a trading strategy such that a riskless profit could be earned</p>
+<p><strong>Fair value</strong>: Models are used to find the “fair value” of an instrument</p>
+<h2 id="Interest-rate-parity"><a href="#Interest-rate-parity" class="headerlink" title="Interest rate parity"></a>Interest rate parity</h2><p>Interest rate of currency 1 = r1<br>Interest rate of currency 2 = r2<br>Spot FX rate is expressed as: 1 unit of currency 1 = Sunits of currency 2<br>At time t, 1 unit of Currency 1 becomes (1+r1t); S units of Currency 2 becomes S(1+r2t)</p>
+<p>theoretical foward FX rate $F = S\frac{1+ r<em>{2}t}{1+r</em>{1}t}$</p>
+<h2 id="Futures-contracts-期货合约"><a href="#Futures-contracts-期货合约" class="headerlink" title="Futures contracts 期货合约"></a>Futures contracts 期货合约</h2><p>contracts includes: equity, interest rates, fx, commodity</p>
+<p>Index futures: 指数期货 Standardized contract, Daily market-to-market, Margining, Fixed maturities, Electronic, Liquidity</p>
+<p><strong>Fair value of (equity) index futures</strong></p>
+<p>$F = (S-D)(1+r_{t}t)$</p>
+<p>$F$: fair value of the futures</p>
+<p>$S$: today’s index level</p>
+<p>$r_{t}$: interest rate from today to futures expiry</p>
+<p>$t$: time from today to futures expiry</p>
+<p>$D$: present value of all dividends paid before futures expiry(equivalent index points)</p>
+<h2 id="Option-期权"><a href="#Option-期权" class="headerlink" title="Option 期权"></a>Option 期权</h2><p>terminology:</p>
+<ul>
+<li>call option</li>
+<li>put option</li>
+<li>option premium</li>
+<li>option maturity date</li>
+</ul>
+<p>European and American options</p>
+<ul>
+<li>European option: option holder could only exercise the right at maturity</li>
+<li>American option: option holder could exercise the right at any time up to maturity</li>
+</ul>
+<p>The holder of an American option has more choices, therefore this option <strong>could NEVER be cheaper than the corresponding European option; usually it is more expensive</strong></p>
+<p>Option examples:</p>
+<ul>
+<li>stock option</li>
+<li>FX option</li>
+<li>Interest rate cap</li>
+</ul>
+<p>call and put option examples</p>
+<p><strong>Moneyness</strong>: at-the-money(asset price = strike), in-the-money(payout of option is positive), out-of-the-money(payout of option is 0)</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://fallenhert.github.io">Fallen Hert</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://fallenhert.github.io/2024/01/15/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/02/">https://fallenhert.github.io/2024/01/15/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/02/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://fallenhert.github.io" target="_blank">FallenHertBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CUHK/">CUHK</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/">计算机金融</a></div><div class="post_share"><div class="social-share" data-image="/img/pageimage/0013.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/01/15/%E9%9A%8F%E6%83%B3/%E6%AD%A4%E9%97%B4%E4%BE%A6%E6%8E%A2/" title="随笔-此间侦探"><img class="cover" src="/img/pageimage/0014.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">随笔-此间侦探</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/13/%E9%9A%8F%E6%83%B3/%E7%81%B5%E9%AD%82%E4%BA%B5%E6%B8%8E/" title="随笔-灵魂亵渎"><img class="cover" src="/img/pageimage/0012.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">随笔-灵魂亵渎</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/01/08/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/01/" title="Introduction"><img class="cover" src="/img/pageimage/0008.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-08</div><div class="title">Introduction</div></div></a></div><div><a href="/2024/01/11/%E8%AF%BE%E7%A8%8B/%E4%BA%91%E8%AE%A1%E7%AE%97/01/" title="Advanced Cloud - Introduction"><img class="cover" src="/img/pageimage/0011.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-11</div><div class="title">Advanced Cloud - Introduction</div></div></a></div><div><a href="/2024/01/19/%E8%AF%BE%E7%A8%8B/%E4%BA%91%E8%AE%A1%E7%AE%97/02/" title="Advanced Cloud - Background of High Availability"><img class="cover" src="/img/pageimage/0017.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-19</div><div class="title">Advanced Cloud - Background of High Availability</div></div></a></div><div><a href="/2024/01/17/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/02/" title="Image processing and computer vision"><img class="cover" src="/img/pageimage/0016.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-17</div><div class="title">Image processing and computer vision</div></div></a></div><div><a href="/2024/01/16/%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E5%BA%A7/02/" title="Memory&#x2F;Storage Optimization for Small&#x2F;Big Systems"><img class="cover" src="/img/pageimage/0015.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-16</div><div class="title">Memory&#x2F;Storage Optimization for Small&#x2F;Big Systems</div></div></a></div><div><a href="/2024/01/09/%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E5%BA%A7/01/" title="Introduction to Computation Models"><img class="cover" src="/img/pageimage/0009.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-09</div><div class="title">Introduction to Computation Models</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Fallen Hert</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/fallenhert"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Topic-1-1-DERIVATIVE-MARKET-AND-INSTRUMENTS"><span class="toc-number">1.</span> <span class="toc-text">Topic 1-1: DERIVATIVE MARKET AND INSTRUMENTS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Financial-derivatives"><span class="toc-number">1.1.</span> <span class="toc-text">Financial derivatives</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interest-rate-parity"><span class="toc-number">1.2.</span> <span class="toc-text">Interest rate parity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Futures-contracts-%E6%9C%9F%E8%B4%A7%E5%90%88%E7%BA%A6"><span class="toc-number">1.3.</span> <span class="toc-text">Futures contracts 期货合约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Option-%E6%9C%9F%E6%9D%83"><span class="toc-number">1.4.</span> <span class="toc-text">Option 期权</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/19/%E8%AF%BE%E7%A8%8B/%E4%BA%91%E8%AE%A1%E7%AE%97/02/" title="Advanced Cloud - Background of High Availability"><img src="/img/pageimage/0017.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Advanced Cloud - Background of High Availability"/></a><div class="content"><a class="title" href="/2024/01/19/%E8%AF%BE%E7%A8%8B/%E4%BA%91%E8%AE%A1%E7%AE%97/02/" title="Advanced Cloud - Background of High Availability">Advanced Cloud - Background of High Availability</a><time datetime="2024-01-18T16:00:00.000Z" title="发表于 2024-01-19 00:00:00">2024-01-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/17/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/02/" title="Image processing and computer vision"><img src="/img/pageimage/0016.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Image processing and computer vision"/></a><div class="content"><a class="title" href="/2024/01/17/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/02/" title="Image processing and computer vision">Image processing and computer vision</a><time datetime="2024-01-16T16:00:00.000Z" title="发表于 2024-01-17 00:00:00">2024-01-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/16/%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E5%BA%A7/02/" title="Memory/Storage Optimization for Small/Big Systems"><img src="/img/pageimage/0015.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Memory/Storage Optimization for Small/Big Systems"/></a><div class="content"><a class="title" href="/2024/01/16/%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E5%BA%A7/02/" title="Memory/Storage Optimization for Small/Big Systems">Memory/Storage Optimization for Small/Big Systems</a><time datetime="2024-01-15T16:00:00.000Z" title="发表于 2024-01-16 00:00:00">2024-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/15/%E9%9A%8F%E6%83%B3/%E6%AD%A4%E9%97%B4%E4%BE%A6%E6%8E%A2/" title="随笔-此间侦探"><img src="/img/pageimage/0014.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="随笔-此间侦探"/></a><div class="content"><a class="title" href="/2024/01/15/%E9%9A%8F%E6%83%B3/%E6%AD%A4%E9%97%B4%E4%BE%A6%E6%8E%A2/" title="随笔-此间侦探">随笔-此间侦探</a><time datetime="2024-01-14T16:00:00.000Z" title="发表于 2024-01-15 00:00:00">2024-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/15/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/02/" title="Image processing and computer vision"><img src="/img/pageimage/0013.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Image processing and computer vision"/></a><div class="content"><a class="title" href="/2024/01/15/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/02/" title="Image processing and computer vision">Image processing and computer vision</a><time datetime="2024-01-14T16:00:00.000Z" title="发表于 2024-01-15 00:00:00">2024-01-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Fallen Hert</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

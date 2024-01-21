@@ -6,7 +6,7 @@
   <link href="https://fallenhert.github.io/atom.xml" rel="self"/>
   
   <link href="https://fallenhert.github.io/"/>
-  <updated>2024-01-10T17:05:50.922Z</updated>
+  <updated>2024-01-21T11:34:04.732Z</updated>
   <id>https://fallenhert.github.io/</id>
   
   <author>
@@ -15,6 +15,218 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Advanced Cloud - Background of High Availability</title>
+    <link href="https://fallenhert.github.io/2024/01/19/%E8%AF%BE%E7%A8%8B/%E4%BA%91%E8%AE%A1%E7%AE%97/02/"/>
+    <id>https://fallenhert.github.io/2024/01/19/%E8%AF%BE%E7%A8%8B/%E4%BA%91%E8%AE%A1%E7%AE%97/02/</id>
+    <published>2024-01-18T16:00:00.000Z</published>
+    <updated>2024-01-21T11:34:04.732Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Background-of-High-Availability"><a href="#Background-of-High-Availability" class="headerlink" title="Background of High Availability"></a>Background of High Availability</h1><p>Cloud Systems = Replicated + a Fault Tolerant Level + a Degree of Consistency</p><p>Solution:</p><ul><li>Synchrony</li><li>Fault</li><li>Consistency</li></ul><h2 id="Synchrony"><a href="#Synchrony" class="headerlink" title="Synchrony"></a>Synchrony</h2><p>同步率约高，响应时间越短，系统越容易设计</p><p><img src="........\themes\butterfly\source\img\insertImg\Synchrony.png" alt="image-20240121192708540"></p><h2 id="Fault-Model"><a href="#Fault-Model" class="headerlink" title="Fault Model"></a>Fault Model</h2><p>Crash-Fault ==(protocol design difficulty)==&gt; Byzantine Fault</p><p>more Byzantine, more Async ==&gt; more difficult</p><h2 id="Correctness"><a href="#Correctness" class="headerlink" title="Correctness"></a>Correctness</h2><ul><li>Safety</li><li>Liveness</li></ul><p>Remote Procedure Call</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Background-of-High-Availability&quot;&gt;&lt;a href=&quot;#Background-of-High-Availability&quot; class=&quot;headerlink&quot; title=&quot;Background of High Availabilit</summary>
+      
+    
+    
+    
+    <category term="课程" scheme="https://fallenhert.github.io/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="CUHK" scheme="https://fallenhert.github.io/tags/CUHK/"/>
+    
+    <category term="云计算" scheme="https://fallenhert.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Image processing and computer vision</title>
+    <link href="https://fallenhert.github.io/2024/01/17/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/02/"/>
+    <id>https://fallenhert.github.io/2024/01/17/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/02/</id>
+    <published>2024-01-16T16:00:00.000Z</published>
+    <updated>2024-01-17T14:03:35.190Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Edge-detection-and-image-filtering"><a href="#Edge-detection-and-image-filtering" class="headerlink" title="Edge detection and image filtering"></a>Edge detection and image filtering</h1><p>TRY PYTHON to run the openCV</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Edge-detection-and-image-filtering&quot;&gt;&lt;a href=&quot;#Edge-detection-and-image-filtering&quot; class=&quot;headerlink&quot; title=&quot;Edge detection and image</summary>
+      
+    
+    
+    
+    <category term="课程" scheme="https://fallenhert.github.io/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="CUHK" scheme="https://fallenhert.github.io/tags/CUHK/"/>
+    
+    <category term="计算机视觉" scheme="https://fallenhert.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Memory/Storage Optimization for Small/Big Systems</title>
+    <link href="https://fallenhert.github.io/2024/01/16/%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E5%BA%A7/02/"/>
+    <id>https://fallenhert.github.io/2024/01/16/%E8%AF%BE%E7%A8%8B/%E8%AE%B2%E5%BA%A7/02/</id>
+    <published>2024-01-15T16:00:00.000Z</published>
+    <updated>2024-01-16T12:29:24.608Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Memory-Storage-Optimization-for-Small-Big-Systems"><a href="#Memory-Storage-Optimization-for-Small-Big-Systems" class="headerlink" title="Memory/Storage Optimization for Small/Big Systems"></a>Memory/Storage Optimization for Small/Big Systems</h1><p><strong>Lecturer: Zili SHAO</strong></p><p>Memory and Storage: Big Capacity, Low Latency</p><p>Index and Storage Model</p><h2 id="Runtime-Configuration-Changes"><a href="#Runtime-Configuration-Changes" class="headerlink" title="Runtime Configuration Changes"></a>Runtime Configuration Changes</h2><p>for Android</p><p>Scenario changes -&gt; configuration changes</p><ul><li>screen rotation</li><li>keyboard attachment</li><li>Language switching</li></ul><p>Runtime change issues - The Android-App way</p><ul><li>Passive <em>restarting-based</em> runtime change handling scheme</li><li>Challenging and <em>error-prone</em> for <em>app developers</em></li></ul><p>Existing Runtime Change Handling Approaches</p><ul><li>The Static-Analysis Way<ul><li>KREfinder[ICDE ‘10]</li><li>RuntimeDroid[MobiSys ‘21]</li><li>Limitations:<ul><li>False positivs</li></ul></li></ul></li></ul><p>Challenges: Android is complex</p><p>Basic Idea</p><p>Activity State</p><h2 id="Storage-Engine-of-Relational-Database-RDB"><a href="#Storage-Engine-of-Relational-Database-RDB" class="headerlink" title="Storage Engine of Relational Database(RDB)"></a>Storage Engine of Relational Database(RDB)</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Memory-Storage-Optimization-for-Small-Big-Systems&quot;&gt;&lt;a href=&quot;#Memory-Storage-Optimization-for-Small-Big-Systems&quot; class=&quot;headerlink&quot; t</summary>
+      
+    
+    
+    
+    <category term="课程" scheme="https://fallenhert.github.io/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="CUHK" scheme="https://fallenhert.github.io/tags/CUHK/"/>
+    
+    <category term="讲座" scheme="https://fallenhert.github.io/tags/%E8%AE%B2%E5%BA%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随笔-此间侦探</title>
+    <link href="https://fallenhert.github.io/2024/01/15/%E9%9A%8F%E6%83%B3/%E6%AD%A4%E9%97%B4%E4%BE%A6%E6%8E%A2/"/>
+    <id>https://fallenhert.github.io/2024/01/15/%E9%9A%8F%E6%83%B3/%E6%AD%A4%E9%97%B4%E4%BE%A6%E6%8E%A2/</id>
+    <published>2024-01-14T16:00:00.000Z</published>
+    <updated>2024-01-20T15:27:56.176Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-故事梗概"><a href="#1-故事梗概" class="headerlink" title="1. 故事梗概"></a>1. 故事梗概</h2><p>游戏王衍生故事</p><h3 id="1-1-背景"><a href="#1-1-背景" class="headerlink" title="1.1 背景"></a>1.1 背景</h3><p>世界划分为 此、彼 以及间隔于此彼之中的间。</p><p><strong>背景一</strong>：将世界元素进行整合，原先只有一个世界，但是由于各种召唤法的不断发展扭曲出的能量，将世界拆分成多个，并最终演化为类似双三角锥的形式，基础次元、同调次元、超量次元、融合次元在一个基本面，基础次元位于中心，同调、超量、融合次元分别向三个不同的方向发展。在超量次元的更远端，是星光界与巴利安世界组成的双体结构。位于上三角锥的顶部的是跃升的链接次元，接受了来自四个次元的能量。位于下三角锥底部的是下沉的冥界，阿图姆所在的世界。而充斥在这些世界之间的便是被成为“<strong>间</strong>“的地带。</p><p><strong>背景二</strong>：由于<strong>间</strong>是同调、超量、融合的高维召唤拉伸所产生的空间，呈现出灵魂空间的状态，内部能量对同调、超量、融合的召唤存在<strong>排斥</strong>，且需要决斗者提供精神力给卡牌精灵才能够让卡牌怪兽具象化，同样，魔法、陷阱的发动也需要提供对应的想象力。</p><p>在间中，可以使用特殊的<strong>超魂召唤</strong>。超魂召唤借助人的灵魂引导卡牌精灵升级，对弱小者、不稳定者的灵魂存有伤害。</p><p>间中同样存在对应的 灵魂管理机构。</p><p>主角生活在基础次元，依靠自身可以看过间的左眼，帮助引导徘徊于基础次元的卡牌怪兽灵魂前往冥界。</p><h3 id="1-2-主要人物"><a href="#1-2-主要人物" class="headerlink" title="1.2 主要人物"></a>1.2 主要人物</h3><h4 id="1-2-1-作间游司"><a href="#1-2-1-作间游司" class="headerlink" title="1.2.1 作间游司"></a>1.2.1 作间游司</h4><p>男主角，偏冷静</p><p>左眼可以窥见彼岸，右眼正常看见此岸，双目交错可以看到间中灵体</p><p>卡组主题：动物</p><p>卡组主题字段：无间灵</p><h4 id="1-2-2-神木友菜"><a href="#1-2-2-神木友菜" class="headerlink" title="1.2.2 神木友菜"></a>1.2.2 神木友菜</h4><p>女主角</p><p>男主角同班同学，青梅，恋人。</p><p>卡组主题：绘画</p><p>卡组主题字段：缤纷世界</p><h4 id="1-2-3-深川谦二"><a href="#1-2-3-深川谦二" class="headerlink" title="1.2.3 深川谦二"></a>1.2.3 深川谦二</h4><p>性格与男主类似，偏冷静钻研，黑客？</p><p>卡组主题：程序 - 算法 + 数据结构</p><p>卡组主题字段：编码</p><p>编码兽 - 栈响尾蛇，编码兽 - 节点虫，编码兽 - 树角鹿（上级），编码兽 - </p><p>编码准备 - 排序（调整星级），编码准备 - 迭代（融合），编码准备 - 剪枝（强化）</p><p>编码战争 - 图形渲染（防御攻击），编码战争 - 人工智慧（永续强化），编码战争 - 网络攻击（破坏）</p><p>高阶怪兽：编码兽 - 链表龙，编码兽 - 数组多头蛇</p><h4 id="1-2-4-柳井健次郎"><a href="#1-2-4-柳井健次郎" class="headerlink" title="1.2.4 柳井健次郎"></a>1.2.4 柳井健次郎</h4><p>热血莽子，设定上的男三</p><p>卡组主题：格斗</p><p>卡组主题字段：修罗挑战者</p><p>借用拳愿中二虎流的招式，操流之型、金刚之型、火天之型、水天之型</p><h4 id="1-2-5-立原千织"><a href="#1-2-5-立原千织" class="headerlink" title="1.2.5 立原千织"></a>1.2.5 立原千织</h4><p>神木友菜闺蜜/好朋友的设定</p><p>场外解说，同属于学生会成员。</p><h2 id="2-超魂召唤说明"><a href="#2-超魂召唤说明" class="headerlink" title="2. 超魂召唤说明"></a>2. 超魂召唤说明</h2><p>新召唤法：</p><p><strong>超魂召唤</strong>：从 1 星开始，叠加到任意星级，将最后叠加到的星级记录为魂阶。<br>例：2 魂阶的怪兽需要 1 星怪兽 1 只，2 星怪兽 1 只。4 魂阶的怪兽需要 1 星怪兽，2 星怪兽，3 星怪兽，4 星怪兽各一只。</p><p>完魂 使用 1 星至 n 星怪兽各一只超魂召唤出来的 n 阶超魂怪兽；<br>半魂 使用 n-1 星怪兽和 n 星怪兽各一只超魂召唤出来的 n 阶超魂怪兽（1 阶超魂怪兽无半魂）</p><p><strong>超魂召唤-改</strong>：递增阶级的至少两只怪兽进行召唤。<br>例：3 魂阶的怪兽 可以通过 2 星怪兽 1 只，3 星怪兽 1 只进行超魂召唤。</p><p>超魂怪兽没有阶级，只有魂阶。超魂怪兽可以作为基础魂阶再次超魂召唤。<br>例：4 魂阶的怪兽可以由一只 3 魂阶的怪兽与一只 4 星怪兽超魂召唤。</p><p>“我使用 xxx 作为基点（低星怪兽）打开跃迁通道。xxx 的灵魂啊，经历 xxx 的洗练后，焕发出新的力量吧。”</p><h2 id="3-其他待定"><a href="#3-其他待定" class="headerlink" title="3. 其他待定"></a>3. 其他待定</h2><p>待定：</p><ul><li>超魂怪兽的特殊性：超魂怪兽因为超魂召唤被送入墓地的场合回到额外卡组</li><li>新怪兽种族/类别：引入新怪兽类别 灵魂怪兽（待定），普遍适用效果，从场上从去墓地的场合不送去墓地而是去除外区</li></ul><h2 id="4-剧情概要"><a href="#4-剧情概要" class="headerlink" title="4. 剧情概要"></a>4. 剧情概要</h2><h3 id="4-1-校园日常篇"><a href="#4-1-校园日常篇" class="headerlink" title="4.1 校园日常篇"></a>4.1 校园日常篇</h3><p>来自阿图姆的委托</p><p>引出出场人物，丰富主角团。</p><p>逐渐引出第一篇章的幕后团队。</p><p>主角受到特殊的委托，借用高中生的年龄身份前往某私立决斗学院展开调查。在调查初期结识了一些形形色色的人，帮助其中一些人解除被咒灵缠身的困境。</p><p>咒灵初步划分为：贪嗔痴慢疑，五类。</p><h3 id="4-2-校园恶灵篇"><a href="#4-2-校园恶灵篇" class="headerlink" title="4.2 校园恶灵篇"></a>4.2 校园恶灵篇</h3><p>对战各式咒灵以及最后的章节 BOSS，追击到间内彻底消灭了最终 BOSS，解决了私立决斗学院内的麻烦。</p><p>但决斗中超魂召唤激起的能力引起了间中灵体监管局的注意</p><h3 id="4-3-灵体监管局篇"><a href="#4-3-灵体监管局篇" class="headerlink" title="4.3 灵体监管局篇"></a>4.3 灵体监管局篇</h3><p>灵魂监管局注意到主角，并与主角团接触。</p><p>认为主角未经许可擅自处理灵体，并磨灭了部分灵体，触犯了灵体监管局管辖下的对应方针。</p><p>经过多场战斗之后，灵体监管局认可了主角的实力，希望主角加入灵体监管局。</p><p>主角拒绝后，转而邀请主角能够接受灵体监管局的“监视”/“辅助设备”。能够为主角提供一些关于世界的资料。</p><h3 id="4-4-平行次元篇"><a href="#4-4-平行次元篇" class="headerlink" title="4.4 平行次元篇"></a>4.4 平行次元篇</h3><p>与灵魂在间决斗时，对方使用了未在基础中见过的召唤 —— 融合/同调/超量</p><p>因为能量排斥带来的影响，主角返回现世时发生偏折进入了其他平行次元。</p><p>接触并学习其他召唤法。</p><p>反派呢？</p><p>反派发展：</p><p>校园篇：通过咒灵唤起人们心中的欲望积攒对应的精神力量</p><p>灵魂监管局篇：表面上说已经将亡灵引导前往冥界，暗地收集咒灵来积攒力量，代表间的意志。想要吞并破坏现世。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-故事梗概&quot;&gt;&lt;a href=&quot;#1-故事梗概&quot; class=&quot;headerlink&quot; title=&quot;1. 故事梗概&quot;&gt;&lt;/a&gt;1. 故事梗概&lt;/h2&gt;&lt;p&gt;游戏王衍生故事&lt;/p&gt;
+&lt;h3 id=&quot;1-1-背景&quot;&gt;&lt;a href=&quot;#1-1-背景&quot; class=</summary>
+      
+    
+    
+    
+    <category term="随笔" scheme="https://fallenhert.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="随笔" scheme="https://fallenhert.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Image processing and computer vision</title>
+    <link href="https://fallenhert.github.io/2024/01/15/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/02/"/>
+    <id>https://fallenhert.github.io/2024/01/15/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/02/</id>
+    <published>2024-01-14T16:00:00.000Z</published>
+    <updated>2024-01-15T15:26:34.363Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Calculation of returns</strong></p><p>收益计算</p><ul><li>simple interest convention 简单利益惯例<ul><li>e.g. 6-month rate is 4.8%: $1000 x (1 + 0.048 x 0.5) = $1024</li></ul></li><li>annual compounding convention 年复利惯例<ul><li>e.g. 2-year interest rate is 5%: $1000 x (1+0.05)^2 = $1102.5</li></ul></li><li>semi-annual compounding convention 半年复利惯例<ul><li>e.g. 2-year interest rate is 5.1%: $1000 x (1+0.051/2)^(2x2) = $1105.96</li></ul></li><li>continuous compounding convention 持续复利惯例<ul><li>e.g. 3-year interest rate is 5.3%: $1000 x e^(0/053x3) = $1172.34</li></ul></li></ul><h1 id="Topic-1-1-DERIVATIVE-MARKET-AND-INSTRUMENTS"><a href="#Topic-1-1-DERIVATIVE-MARKET-AND-INSTRUMENTS" class="headerlink" title="Topic 1-1: DERIVATIVE MARKET AND INSTRUMENTS"></a>Topic 1-1: DERIVATIVE MARKET AND INSTRUMENTS</h1><h2 id="Financial-derivatives"><a href="#Financial-derivatives" class="headerlink" title="Financial derivatives"></a>Financial derivatives</h2><p>A contract “derived” from some underlying asset prices</p><p>Payoff could be linear or non-linear</p><p>Could involve multiple assests/currencies</p><p>Provide instruments for risk transfer</p><p>Market completeness</p><p>Could be highly leveraged</p><p>Listed instruments could be very liquid; very efficient as a speculative tool</p><p><strong>arbitrage</strong>: the possibility of setting up a trading strategy such that a riskless profit could be earned</p><p><strong>Fair value</strong>: Models are used to find the “fair value” of an instrument</p><h2 id="Interest-rate-parity"><a href="#Interest-rate-parity" class="headerlink" title="Interest rate parity"></a>Interest rate parity</h2><p>Interest rate of currency 1 = r1<br>Interest rate of currency 2 = r2<br>Spot FX rate is expressed as: 1 unit of currency 1 = Sunits of currency 2<br>At time t, 1 unit of Currency 1 becomes (1+r1t); S units of Currency 2 becomes S(1+r2t)</p><p>theoretical foward FX rate $F = S\frac{1+ r<em>{2}t}{1+r</em>{1}t}$</p><h2 id="Futures-contracts-期货合约"><a href="#Futures-contracts-期货合约" class="headerlink" title="Futures contracts 期货合约"></a>Futures contracts 期货合约</h2><p>contracts includes: equity, interest rates, fx, commodity</p><p>Index futures: 指数期货 Standardized contract, Daily market-to-market, Margining, Fixed maturities, Electronic, Liquidity</p><p><strong>Fair value of (equity) index futures</strong></p><p>$F = (S-D)(1+r_{t}t)$</p><p>$F$: fair value of the futures</p><p>$S$: today’s index level</p><p>$r_{t}$: interest rate from today to futures expiry</p><p>$t$: time from today to futures expiry</p><p>$D$: present value of all dividends paid before futures expiry(equivalent index points)</p><h2 id="Option-期权"><a href="#Option-期权" class="headerlink" title="Option 期权"></a>Option 期权</h2><p>terminology:</p><ul><li>call option</li><li>put option</li><li>option premium</li><li>option maturity date</li></ul><p>European and American options</p><ul><li>European option: option holder could only exercise the right at maturity</li><li>American option: option holder could exercise the right at any time up to maturity</li></ul><p>The holder of an American option has more choices, therefore this option <strong>could NEVER be cheaper than the corresponding European option; usually it is more expensive</strong></p><p>Option examples:</p><ul><li>stock option</li><li>FX option</li><li>Interest rate cap</li></ul><p>call and put option examples</p><p><strong>Moneyness</strong>: at-the-money(asset price = strike), in-the-money(payout of option is positive), out-of-the-money(payout of option is 0)</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Calculation of returns&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;收益计算&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;simple interest convention 简单利益惯例&lt;ul&gt;
+&lt;li&gt;e.g. 6-month rate is 4.8%: $10</summary>
+      
+    
+    
+    
+    <category term="课程" scheme="https://fallenhert.github.io/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="CUHK" scheme="https://fallenhert.github.io/tags/CUHK/"/>
+    
+    <category term="计算机金融" scheme="https://fallenhert.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随笔-灵魂亵渎</title>
+    <link href="https://fallenhert.github.io/2024/01/13/%E9%9A%8F%E6%83%B3/%E7%81%B5%E9%AD%82%E4%BA%B5%E6%B8%8E/"/>
+    <id>https://fallenhert.github.io/2024/01/13/%E9%9A%8F%E6%83%B3/%E7%81%B5%E9%AD%82%E4%BA%B5%E6%B8%8E/</id>
+    <published>2024-01-12T16:00:00.000Z</published>
+    <updated>2024-01-13T13:13:05.220Z</updated>
+    
+    <content type="html"><![CDATA[<p>“你好，请坐在这边。欢迎你入职灵体监管局，我在后面的一段时间内会担任你的导师。我叫孙立宏，你也可以管我叫猴哥。”</p><p>“我知道你目前肯定有很多疑问，不用心急，我慢慢地给你讲。”</p><p>“是的，你已经死了，不过现在你仍保有着你的灵体。”</p><p>“怎么死的？很奇怪，你为什么会在意这个问题。稍等，我看一下。多车相撞，连环追尾。”</p><p>“你的父母？这我并不清楚，他们并不在我负责的范畴内，之后有时间你可以去找有关部门了解一下，如果你还记得的话。”</p><p>“接下来我简单和你说一下你之后的主要工作和注意要点吧…………”</p><p>张伟看着面前这个滔滔不绝的男子，脑子里已经乱作一团。自打听到“连环追尾”之后，他便一个字都听不进去了，他好像很清楚这四个字意味着什么、却又没有一个明确的认知。</p><p>死了？就这么死了？我的番还没有追完、周年庆签到奖励还没领完呢？怎么就死了？为什么我没有一点相关的记忆或者痛苦？</p><p>张伟低头看了看自己的手，又抬起左手挠了挠脑袋，触感上多了一些凉意。</p><p>到底发什么了什么事情？我的父母现在又在哪里？对了，手机，我的手机呢？</p><p>“好了，你现在大致清楚了吧。正好目前手头上有一个紧急任务需要处理一下，你现在跟我去外头走一趟。”孙立宏笑眯眯地说完这些，便打算起身。</p><p>张伟连忙开口问道：“等一下，我想要我的手机。”</p><p>孙立宏脸上闪过一丝不悦，又马上纠正成了笑容，摇了摇头，“这边没有手机这种东西，不过你可以把自己想象成手机。还有，我希望你早点放弃些幻想吧，让灵体一直保持原先肉体的温度，消耗的能量可以巨额的。没有其他问题，就站起来跟我出发吧。”</p><p>张伟听到这一串谜语人发言有些懵，在陌生的处境下不知道自己该做些什么。看着孙立宏已经在门口用脚打着催促的节拍，张伟犹豫了一下还是起身跟了上去。</p><p>张伟也想看一下，这所说的灵体监管局到底是什么样子的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;“你好，请坐在这边。欢迎你入职灵体监管局，我在后面的一段时间内会担任你的导师。我叫孙立宏，你也可以管我叫猴哥。”&lt;/p&gt;
+&lt;p&gt;“我知道你目前肯定有很多疑问，不用心急，我慢慢地给你讲。”&lt;/p&gt;
+&lt;p&gt;“是的，你已经死了，不过现在你仍保有着你的灵体。”&lt;/p&gt;
+&lt;p&gt;“怎么</summary>
+      
+    
+    
+    
+    <category term="随笔" scheme="https://fallenhert.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="随笔" scheme="https://fallenhert.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Advanced Cloud - Introduction</title>
+    <link href="https://fallenhert.github.io/2024/01/11/%E8%AF%BE%E7%A8%8B/%E4%BA%91%E8%AE%A1%E7%AE%97/01/"/>
+    <id>https://fallenhert.github.io/2024/01/11/%E8%AF%BE%E7%A8%8B/%E4%BA%91%E8%AE%A1%E7%AE%97/01/</id>
+    <published>2024-01-10T16:00:00.000Z</published>
+    <updated>2024-01-13T10:58:11.711Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="0-Introduction"><a href="#0-Introduction" class="headerlink" title="0-Introduction"></a>0-Introduction</h1><p><strong>Cloud</strong></p><p>Virtualization - Eg.Docker</p><p>High Availability - <code>Main Focus</code></p><p>as-a-Service and pricing - Money Making</p><p>Infrastructure</p><p><strong>Words and Technology Behind</strong></p><p><strong>Assessment</strong></p><p>2 students: a group project on Raft</p><ul><li>Go is easier</li></ul><h1 id="1-Virtualization-and-Data-Center"><a href="#1-Virtualization-and-Data-Center" class="headerlink" title="1-Virtualization and Data Center"></a>1-Virtualization and Data Center</h1><h2 id="Virtualization"><a href="#Virtualization" class="headerlink" title="Virtualization"></a>Virtualization</h2><p>Hypervisor - A.k.a “Virtual Machine Monitor”</p><p>Implementation of Hypervisor<br>(Full Virtualization &amp; Para-Virtualization)</p><p><strong>Container</strong></p><p>E.g. Docker</p><h2 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h2><p>Radio: Hub, Switch &amp; Router Difference</p><p>Hubs &amp; Switches are used to create Network. Routers are used to connect Network.</p><p><strong>Software Defined Networking</strong></p><p>decide the path</p><ul><li>Control plane logic is software on a server</li><li>Data Plane</li><li>Data Center<ul><li>Several Concerns</li></ul></li></ul><p>RDMA</p><p>Future: CXL?</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;0-Introduction&quot;&gt;&lt;a href=&quot;#0-Introduction&quot; class=&quot;headerlink&quot; title=&quot;0-Introduction&quot;&gt;&lt;/a&gt;0-Introduction&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Cloud&lt;/strong&gt;</summary>
+      
+    
+    
+    
+    <category term="课程" scheme="https://fallenhert.github.io/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="CUHK" scheme="https://fallenhert.github.io/tags/CUHK/"/>
+    
+    <category term="云计算" scheme="https://fallenhert.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Image processing and computer vision</title>
+    <link href="https://fallenhert.github.io/2024/01/10/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/01/"/>
+    <id>https://fallenhert.github.io/2024/01/10/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/01/</id>
+    <published>2024-01-09T16:00:00.000Z</published>
+    <updated>2024-01-17T14:04:08.639Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Camera-models-and-parameters"><a href="#Camera-models-and-parameters" class="headerlink" title="Camera models and parameters"></a>Camera models and parameters</h1><p>章节内容</p><ul><li>相机的数学模型</li><li>相机的固有(静态)参数</li><li>相机的外部参数</li><li>投影矩阵</li><li>相机标定(camera calibration)</li></ul><h2 id="1-点向量-与-旋转-平移矩阵"><a href="#1-点向量-与-旋转-平移矩阵" class="headerlink" title="1. 点向量 与 旋转/平移矩阵"></a>1. 点向量 与 旋转/平移矩阵</h2><h2 id="2-相机坐标到图像平面"><a href="#2-相机坐标到图像平面" class="headerlink" title="2. 相机坐标到图像平面"></a>2. 相机坐标到图像平面</h2><script type="math/tex; mode=display">x = F \times \frac{X_{c}}{Z_{c}} \\y = F \times \frac{Y_{c}}{Z_{c}}</script><p>其中 F 为焦距，3D 空间的坐标为$[X<em>{c},Y</em>{c},Z_{c}]^{T}$，2D 图片的点位置为$[x,y]^{T}$，单位均为米</p><blockquote><p>e.g.</p><p>F = 5mm, Z = 1 meter</p><p>A tree is 2 meters high, 0.5 meters wide</p><p>Q: What is the value of the height (y) of the tree appearing in the image?</p><p>A: 5mm * 2meter / 1meter = 10mm</p></blockquote><p>$(o<em>{x},o</em>{y})$是图像中心，计算 2D 图片中点的像素位置</p><script type="math/tex; mode=display">u = \frac{F}{s_{x}} \times \frac{X_{c}}{Z_{c}} + o_{x} \\v = \frac{F}{s_{y}} \times \frac{Y_{c}}{Z_{c}} + o_{y}</script><blockquote><p>Q: The camera CCD has 1024 x 768 pixels, and the size of the CCD is 5mm x 3.75mm</p><p>A: $S_{x}$ = 5mm / 1024 = 4.88um; $S_y$= 3.75mm / 768 = 4.88um</p></blockquote><h3 id="内部参数"><a href="#内部参数" class="headerlink" title="内部参数"></a>内部参数</h3><p>3D=$X_c, Y_c, Z_c$ in meters</p><p>Image=u,v in pixels</p><p>s= arbitrary rating factor</p><p>其中 M 为内部参数矩阵</p><script type="math/tex; mode=display">\begin{aligned}&\begin{bmatrix}s * u \\s * v \\s\end{bmatrix}= M_{int}\begin{bmatrix}X_{c} \\Y_{c} \\Z_{c}\end{bmatrix} \\&M_{int} =\begin{bmatrix}f & 0 & o_x \\0 & f & o_y \\0 & 0 & 1 \\\end{bmatrix}_{int} \\&image\_center = (o_{x}, o_{y}) \\&f = focal\_length(in pixels)\end{aligned}</script><blockquote><p>e.g.</p><p>$s_x = s_y = 5.4um$</p><p>$(o_x, o_y) = (512, 384) in pixels$</p><p>$f = 4.3mm/5.4um = 800 pixels$</p><p>$[X_c, Y_c, Z_c]^{T} = [0.02, 0.05, 1.2]^{T}meters$</p><p>$M = M_{int}$</p><p>Q: $[u \ v]^{T} = ?$</p><p>A:</p><script type="math/tex; mode=display">\begin{aligned}&\begin{bmatrix}s * u \\s * v \\s\end{bmatrix}= M\begin{bmatrix}X \\ Y \\ Z\end{bmatrix}=\begin{bmatrix}800 & 0 & 512 \\0 & 800 & 384 \\0 & 0 & 1\end{bmatrix}\begin{bmatrix}0.02 \\ 0.05 \\ 1.2\end{bmatrix}_{int}  \\& [u  \ v]^{T} = [525.3 , 717.3]^{T}\end{aligned}</script></blockquote><h3 id="外部参数"><a href="#外部参数" class="headerlink" title="外部参数"></a>外部参数</h3><h3 id="最终结论公式"><a href="#最终结论公式" class="headerlink" title="最终结论公式"></a>最终结论公式</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Camera-models-and-parameters&quot;&gt;&lt;a href=&quot;#Camera-models-and-parameters&quot; class=&quot;headerlink&quot; title=&quot;Camera models and parameters&quot;&gt;&lt;/a&gt;Ca</summary>
+      
+    
+    
+    
+    <category term="课程" scheme="https://fallenhert.github.io/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="CUHK" scheme="https://fallenhert.github.io/tags/CUHK/"/>
+    
+    <category term="计算机视觉" scheme="https://fallenhert.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
   
   <entry>
     <title>Introduction to Computation Models</title>
@@ -47,7 +259,7 @@
     <link href="https://fallenhert.github.io/2024/01/08/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/01/"/>
     <id>https://fallenhert.github.io/2024/01/08/%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%91%E8%9E%8D/01/</id>
     <published>2024-01-07T16:00:00.000Z</published>
-    <updated>2024-01-10T17:17:41.403Z</updated>
+    <updated>2024-01-11T03:46:48.027Z</updated>
     
     <content type="html"><![CDATA[<h1 id="TOPIC-0-INTRODUCTION-TO-FINANCIAL-MARKETS-AND-FUNDAMENTAL-FINANCIAL-CONCEPTS"><a href="#TOPIC-0-INTRODUCTION-TO-FINANCIAL-MARKETS-AND-FUNDAMENTAL-FINANCIAL-CONCEPTS" class="headerlink" title="TOPIC 0: INTRODUCTION TO FINANCIAL MARKETS AND FUNDAMENTAL FINANCIAL CONCEPTS"></a>TOPIC 0: INTRODUCTION TO FINANCIAL MARKETS AND FUNDAMENTAL FINANCIAL CONCEPTS</h1><p>In the faculty of engineering, out of a total of 24 classes, there are 4 classes with 200 students in each class, and there are 20 classes with 20 students in each class (assume each student only takes one class)</p><p><strong>Question</strong>: how big is a typical class in the faculty of engineering?</p><p><strong>Answer 1</strong>(from the faculty dean): ‘the average class size is 50’<br><strong>Answer 2</strong>(from a survey of all students): ‘the average size of the class that I am taking is 140’<br><strong>Answer 3</strong>(from a teacher): ‘Oh, most of the classes are small classes’</p><p><strong>Computational Finance</strong></p><p>Models(Math)</p><p>Computing(hardware/software)</p><p>Finance(details)</p><p><strong>Course Scope</strong></p><p>Apply models / algorithms in managing the risks and making decisions regarding the trading of financial assets</p><ul><li>Equal emphasis on theoretical and practical aspects</li></ul><p><strong>Financial jarcons</strong></p><p><strong>Different financial markets</strong></p><p><strong>Equity and debt</strong>: two ways for companies to raise money</p><p><strong>Bills, Notes and Bonds</strong>: a means of borrowing money</p><p><strong>Initial public offering(IPO)</strong></p><p><strong>Risk and Return</strong></p><p><strong>Rational and irrational behaviour</strong></p><p>A rational investor always wants to achieve the highest return with the minimum risk</p><p><strong>Theory and practice</strong></p><p>Present value(PV) and discounting factor(DF)</p>]]></content>
     
