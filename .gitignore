@@ -2,4 +2,6 @@
 node_modules/
 themes
 .deploy_git
+public/
 db.json
+local_config.md
