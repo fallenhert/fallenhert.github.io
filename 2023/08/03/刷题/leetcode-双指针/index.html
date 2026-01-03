@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>双指针问题解析 | FallenHertBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="刚开始刷题，遇到的首个思路是双指针。在这篇中积累总结一下。 5. 最长回文子串给你一个字符串 s，找到 s 中最长的回文子串。如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。 示例 1 123输入：s &#x3D; &quot;babad&quot;输出：&quot;bab&quot;解释：&quot;aba&quot; 同样是符合题意的答案。 示例 2 12输入：s &#x3D; &quot;cbbd&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双指针问题解析">
+<meta property="og:url" content="https://fallenhert.github.io/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/index.html">
+<meta property="og:site_name" content="FallenHertBlog">
+<meta property="og:description" content="刚开始刷题，遇到的首个思路是双指针。在这篇中积累总结一下。 5. 最长回文子串给你一个字符串 s，找到 s 中最长的回文子串。如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。 示例 1 123输入：s &#x3D; &quot;babad&quot;输出：&quot;bab&quot;解释：&quot;aba&quot; 同样是符合题意的答案。 示例 2 12输入：s &#x3D; &quot;cbbd&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-01T02:40:56.140Z">
+<meta property="article:author" content="Fallen Hert">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="FallenHertBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FallenHertBlog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://fallenhert.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-刷题/leetcode-双指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/" class="article-date">
+  <time class="dt-published" datetime="2023-08-02T16:00:00.000Z" itemprop="datePublished">2023-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BB%83%E4%B9%A0/">练习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      双指针问题解析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>刚开始刷题，遇到的首个思路是双指针。在这篇中积累总结一下。</p>
+<h2 id="5-最长回文子串"><a href="#5-最长回文子串" class="headerlink" title="5. 最长回文子串"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-palindromic-substring/">5. 最长回文子串</a></h2><p>给你一个字符串 s，找到 s 中最长的回文子串。如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
+<p><strong>示例 1</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;cbbd&quot;</span><br><span class="line">输出：&quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>解析思路</strong></p>
+<p>中心扩散法</p>
+<ol>
+<li>定义 i 位置为初始位，注意到从初始位往后复数位如果均相同，则为回文字符串，如”aa“，”bbb“，记为[ i , j ]</li>
+<li>在 1 的基础上，建立两个指针，start 指向字符串初始位 i，end 指向字符串结束位 j</li>
+<li>由中心向外扩散，如果 start-1 位 与 end+1 位 相同，[ start - 1, end + 1] 也为回文字符串</li>
+<li>重复 3 步骤，直到获得 i 初始位下的最长回文字符串</li>
+<li>i 递增，重复 1-4 步骤，直到获取到最长回文字符串</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; <span class="variable">s</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestPalindrome = <span class="keyword">function</span> (<span class="params">s</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, start = <span class="number">0</span>, end = <span class="number">0</span>; i &lt; s.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    start = i;</span><br><span class="line">    end = i;</span><br><span class="line">    <span class="keyword">while</span> (end + <span class="number">1</span> &lt; s.<span class="property">length</span> &amp;&amp; s[end + <span class="number">1</span>] == s[i]) &#123;</span><br><span class="line">      end += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (start &gt; <span class="number">0</span> &amp;&amp; end &lt; s.<span class="property">length</span> &amp;&amp; s[end + <span class="number">1</span>] == s[start - <span class="number">1</span>]) &#123;</span><br><span class="line">      end += <span class="number">1</span>;</span><br><span class="line">      start -= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (end &gt; start &amp;&amp; str.<span class="property">length</span> &lt; end - start + <span class="number">1</span>) &#123;</span><br><span class="line">      str = s.<span class="title function_">slice</span>(start, end + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str ? str : s[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="11-盛最多水的容器"><a href="#11-盛最多水的容器" class="headerlink" title="11. 盛最多水的容器"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></h2><p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p>
+<p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
+<p>返回容器可以储存的最大水量。</p>
+<p><strong>说明：</strong>你不能倾斜容器。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;cbbd&quot;</span><br><span class="line">输出：&quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>解析思路</strong></p>
+<p>向中心夹逼</p>
+<ol>
+<li>建立两个指针，left 指向最左位，right 指向最右侧，每次计算 left 与 right 之间 可盛水的量</li>
+<li>比较左右两条边的大小，小的一边往内侧移动，计算 可盛水的量</li>
+<li>直到左右侧重合前，获取最大可盛水的量即为题解</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">height</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> maxArea = <span class="keyword">function</span> (<span class="params">height</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> right = height.<span class="property">length</span> - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> maxArea = <span class="number">0</span>; <span class="comment">// 最大容积</span></span><br><span class="line">  <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">    <span class="comment">// 计算出 当前的容积  与最大容积比较，取出最大的</span></span><br><span class="line">    <span class="keyword">const</span> currentArea = (right - left) * <span class="title class_">Math</span>.<span class="title function_">min</span>(height[left], height[right]);</span><br><span class="line">    maxArea = <span class="title class_">Math</span>.<span class="title function_">max</span>(maxArea, currentArea);</span><br><span class="line">    <span class="comment">//  left 向内移动</span></span><br><span class="line">    <span class="keyword">if</span> (height[left] &lt; height[right]) &#123;</span><br><span class="line">      left++;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      right--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> maxArea;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="18-四数之和"><a href="#18-四数之和" class="headerlink" title="18. 四数之和"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/4sum/">18. 四数之和</a></h2><p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code> ，和一个目标值 <code>target</code> 。请你找出并返回满足下述全部条件且<strong>不重复</strong>的四元组 <code>[nums[a], nums[b], nums[c], nums[d]]</code> （若两个四元组元素一一对应，则认为两个四元组重复）：</p>
+<ul>
+<li><code>0 &lt;= a, b, c, d &lt; n</code></li>
+<li><code>a</code>、<code>b</code>、<code>c</code> 和 <code>d</code> <strong>互不相同</strong></li>
+<li><code>nums[a] + nums[b] + nums[c] + nums[d] == target</code></li>
+</ul>
+<p>你可以按 <strong>任意顺序</strong> 返回答案 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,0,-1,0,-2,2], target = 0</span><br><span class="line">输出：[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,2,2,2,2], target = 8</span><br><span class="line">输出：[[2,2,2,2]]</span><br></pre></td></tr></table></figure>
+<p><strong>解析思路</strong></p>
+<p>基于三数相加的思路。</p>
+<ol>
+<li>将数组从低到高依次排列</li>
+<li>通过 i 和 j 定下前两个参数的位置（三数之和场景简化 用 i 定位第一个参数）</li>
+<li>用 L 和 R 作为指针，根据 从低到高的排列顺序 夹逼到 target 场景 —— 如果四数之和较 target 小，L 右移；如果四数之和较 target 大，R 左移。直到 L、R 重合前，将每一组值满足 target 的解输出到 outPut 当中</li>
+<li>其中添加 while 循环避免重复数组的出现</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">target</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number[][]</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> fourSum = <span class="keyword">function</span> (<span class="params">nums, target</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (nums.<span class="property">length</span> &lt; <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">  nums.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line">  <span class="keyword">const</span> outPut = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.<span class="property">length</span> - <span class="number">3</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="property">length</span> - <span class="number">2</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">let</span> L = j + <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">let</span> R = nums.<span class="property">length</span> - <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span> (L &lt; R) &#123;</span><br><span class="line">        <span class="keyword">let</span> sum = nums[i] + nums[j] + nums[L] + nums[R];</span><br><span class="line">        <span class="keyword">if</span> (sum == target) &#123;</span><br><span class="line">          outPut.<span class="title function_">push</span>([nums[i], nums[j], nums[L], nums[R]]);</span><br><span class="line">          <span class="keyword">while</span> (nums[R] == nums[R - <span class="number">1</span>] &amp;&amp; R &gt; <span class="number">2</span>) &#123;</span><br><span class="line">            R--;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">while</span> (nums[L] == nums[L + <span class="number">1</span>] &amp;&amp; L &lt; nums.<span class="property">length</span> - <span class="number">2</span>) &#123;</span><br><span class="line">            L++;</span><br><span class="line">          &#125;</span><br><span class="line">          R--;</span><br><span class="line">          L++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">          R--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum &lt; target) &#123;</span><br><span class="line">          L++;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> outPut;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="27-移除元素"><a href="#27-移除元素" class="headerlink" title="27. 移除元素"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-element/">27. 移除元素</a></h2><p>给你一个数组 <code>nums</code> 和一个值 <code>val</code>，你需要 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/原地算法">原地</a></strong> 移除所有数值等于 <code>val</code> 的元素，并返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须仅使用 <code>O(1)</code> 额外空间并 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/原地算法">原地 </a>修改输入数组</strong>。</p>
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p><strong>解题思路</strong></p>
+<p>快慢指针</p>
+<p>因为比较简单，在这边就不展开描述了。贴一下代码仅供参考</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeElement = <span class="keyword">function</span> (<span class="params">nums, val</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> len = nums.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">let</span> k = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums[i] != val) &#123;</span><br><span class="line">      nums[k++] = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> k;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>双指针的常见用法有两种，左右指针和快慢指针。</p>
+<p>左右指针用于中心扩展或者夹逼压缩、这两种场景。</p>
+<p>快慢指针用于数组或列表遍历检索特定元素场景。</p>
+<p>相比较于常规的暴力破解法，往往能够降低一个层级的复杂度。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fallenhert.github.io/2023/08/03/%E5%88%B7%E9%A2%98/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/" data-id="cmjyeh7lm0001dbky80v5au5g" data-title="双指针问题解析" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/08/09/%E6%8B%BE%E6%A2%A6/20230623-%E6%BB%A1%E5%B8%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          南京运满满的一年
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/07/30/%E5%91%A8%E5%B8%B8/20230730/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">结局会怎样04</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8B%BE%E6%A2%A6/">拾梦</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E4%B9%A0/">练习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">观察日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YMM/" rel="tag">YMM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/" rel="tag">八股文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/YMM/" style="font-size: 10px;">YMM</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/" style="font-size: 10px;">八股文</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 10px;">工作</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 15px;">日常</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">十二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/01/03/%E8%A7%82%E5%AF%9F%E7%AC%94%E8%AE%B0/0002-%E4%BB%98%E7%9D%BF%E8%BF%AA/">0002-付睿迪</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/03/%E8%A7%82%E5%AF%9F%E7%AC%94%E8%AE%B0/0003-%E9%BB%84%E6%A2%93%E6%87%BF/">0003-黄梓懿</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/03/%E8%A7%82%E5%AF%9F%E7%AC%94%E8%AE%B0/0004-%E7%8E%8B%E4%BF%8A/">0004-王俊</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/31/%E8%A7%82%E5%AF%9F%E7%AC%94%E8%AE%B0/0001-%E4%BA%A2%E7%AD%B1%E8%88%9F/">0001-亢筱舟</a>
+          </li>
+        
+          <li>
+            <a href="/2024/02/22/%E9%9A%8F%E6%83%B3/%E5%85%83%E7%B4%A0%E4%B9%8B%E5%AD%90/">草案-元素之子</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Fallen Hert<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
